@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Account form</h1>
+<form th:action="@{/product/create}" method="post" th:object="${product}">
+    <div>
+        Name <input type="text" th:field="*{prodName}">
+        <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{prodName}">Name
+            Error</span>
+    </div>
+    <br>
+    <div>
+        Price <input type="text" th:field="*{price}">
+        <span class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price
+            Error</span>
+    </div>
+    <br>
+    <div>
+        Description <input type="text" th:field="*{description}">
+        <span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description
+            Error</span>
+    </div>
+
+    <div>
+        Date of Manf <input type="text" th:field="*{dateOfManf}">
+        <span class="error" th:if="${#fields.hasErrors('dateOfManf')}" th:errors="*{dateOfManf}">dateOfManf
+            Error</span>
+    </div>
+
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
